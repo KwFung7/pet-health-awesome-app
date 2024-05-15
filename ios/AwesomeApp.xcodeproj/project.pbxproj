@@ -939,7 +939,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W2D2X8F376;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "AwesomeApp copy-Info.plist";
+				INFOPLIST_FILE = AwesomeAppDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -966,7 +966,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W2D2X8F376;
-				INFOPLIST_FILE = "AwesomeApp copy-Info.plist";
+				INFOPLIST_FILE = AwesomeAppDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -993,7 +993,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W2D2X8F376;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "AwesomeApp copy copy-Info.plist";
+				INFOPLIST_FILE = AwesomeAppUat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1020,7 +1020,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W2D2X8F376;
-				INFOPLIST_FILE = "AwesomeApp copy copy-Info.plist";
+				INFOPLIST_FILE = AwesomeAppUat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
