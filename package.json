@@ -19,11 +19,22 @@
     "android:build:uat": "cd android && ./gradlew clean bundleUatRelease && cd ..",
     "android:build": "cd android && ./gradlew clean bundleProdRelease && cd ..",
     "test": "jest",
-    "lint": "eslint . --ext .jsx"
+    "lint": "eslint --ext .jsx"
   },
   "dependencies": {
+    "axios": "^1.6.8",
+    "i18next": "^23.11.4",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
     "react": "18.2.0",
-    "react-native": "0.74.1"
+    "react-i18next": "^14.1.1",
+    "react-native": "0.74.1",
+    "react-native-config": "^1.5.1",
+    "react-native-encrypted-storage": "^4.0.3",
+    "react-native-sync-preference": "^1.0.0",
+    "react-redux": "^9.1.2",
+    "react-thunk": "^1.0.0",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -37,6 +48,7 @@
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
     "eslint": "^8.19.0",
+    "eslint-plugin-react-native": "^4.1.0",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
