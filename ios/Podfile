@@ -14,7 +14,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'AwesomeApp' do
+abstract_target 'App' do
   config = use_native_modules!
 
   use_react_native!(
@@ -26,6 +26,21 @@ target 'AwesomeApp' do
   target 'AwesomeAppTests' do
     inherit! :complete
     # Pods for testing
+  end
+
+  target 'AwesomeAppDev' do
+    inherit! :complete
+    # Dev-specific Pods
+  end
+
+  target 'AwesomeAppUat' do
+    inherit! :complete
+    # Uat-specific Pods
+  end
+
+  target 'AwesomeApp' do
+    inherit! :complete
+    # Production-specific Pods
   end
 
   post_install do |installer|
