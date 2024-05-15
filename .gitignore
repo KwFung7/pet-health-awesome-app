@@ -33,6 +33,9 @@ local.properties
 .cxx/
 *.keystore
 !debug.keystore
+*.aab
+*.apk
+output-metadata.json
 
 # node.js
 #
