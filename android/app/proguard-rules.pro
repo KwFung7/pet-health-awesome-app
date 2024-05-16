@@ -8,3 +8,6 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+-dontwarn com.google.errorprone.annotations.Immutable
+-keep class com.awesomeapp.BuildConfig { *; }

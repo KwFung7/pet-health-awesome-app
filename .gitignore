@@ -36,6 +36,7 @@ local.properties
 *.aab
 *.apk
 output-metadata.json
+jks/
 
 # node.js
 #
