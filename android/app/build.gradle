@@ -121,6 +121,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    compile "com.android.support:appcompat-v7:25.0.1"
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
