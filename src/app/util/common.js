@@ -4,7 +4,6 @@ import moment from 'moment';
 import * as CONSTANT from '../constant';
 import CryptoJS from 'react-native-crypto-js';
 import SafariView from 'react-native-safari-view';
-import { CustomTabs } from 'react-native-custom-tabs';
 import { t } from 'i18next';
 
 // 设备宽度，单位 dp
@@ -107,11 +106,7 @@ export const openNativeWebView = (targetUrl) => {
         // Fallback WebView code for iOS 8 and earlier
       });
   } else if (Platform.OS === 'android') {
-    CustomTabs.openURL(targetUrl).then(() => {
 
-    }).catch(err => {
-      console.error(err);
-    });
   }
 };
 
