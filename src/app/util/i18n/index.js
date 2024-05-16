@@ -1,12 +1,13 @@
 // import { Platform, NativeModules } from 'react-native';
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
+import Preference from 'react-native-preference';
 import english from './en';
 import chinese from './zh';
 import * as CONSTANT from '../../constant';
 
 // Get a value from preferences
-// const savedLanguage = SyncPreference.get(CONSTANT.SYNC_PREFERENCE.LANGUAGE);
+const savedLanguage = Preference.get(CONSTANT.SYNC_PREFERENCE.LANGUAGE);
 
 // const deviceLanguage =
 //   Platform.OS === 'ios'
@@ -26,9 +27,9 @@ const resources = {
 // let initLanguage = deviceLanguage.substring(0, 2);
 let initLanguage = 'zh';
 
-// if (savedLanguage !== undefined && savedLanguage !== null) {
-//   initLanguage = savedLanguage;
-// }
+if (savedLanguage !== undefined && savedLanguage !== null) {
+  initLanguage = savedLanguage;
+}
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
