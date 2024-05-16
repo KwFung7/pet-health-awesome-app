@@ -15,21 +15,21 @@ const App = props => {
     <NavigationContainer
       ref={navigationRef}
       onReady={() => {
-        // routeNameRef.current = navigationRef.current.getCurrentRoute().name;
+        routeNameRef.current = navigationRef.current.getCurrentRoute().name;
       }}
       onStateChange={async () => {
-        // const previousRouteName = routeNameRef.current;
-        // const currentRouteName = navigationRef.current.getCurrentRoute().name;
+        const previousRouteName = routeNameRef.current;
+        const currentRouteName = navigationRef.current.getCurrentRoute().name;
 
-        // console.log('Previous Route Name: ' + previousRouteName);
-        // console.log('Current Route Name: ' + currentRouteName);
+        console.log('Previous Route Name: ' + previousRouteName);
+        console.log('Current Route Name: ' + currentRouteName);
         // if (previousRouteName !== currentRouteName) {
-        //   // await analytics().logScreenView({
-        //   //   screen_name: currentRouteName,
-        //   //   screen_class: currentRouteName,
-        //   // });
+        //   await analytics().logScreenView({
+        //     screen_name: currentRouteName,
+        //     screen_class: currentRouteName,
+        //   });
         // }
-        // routeNameRef.current = currentRouteName;
+        routeNameRef.current = currentRouteName;
       }}>
       <Host>
         <RootNavigator />
