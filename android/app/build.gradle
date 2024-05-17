@@ -83,7 +83,7 @@ android {
 
     namespace "com.awesomeapp"
     defaultConfig {
-        applicationId "com"
+        applicationId "com.wfx"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -112,22 +112,22 @@ android {
     productFlavors {
         dev {
             dimension "default"
-            applicationIdSuffix ".awesome.member.dev"
-            resValue "string", "app_name", "AwesomeAppDEV"
+            applicationIdSuffix ".pet.health.dev"
+            resValue "string", "app_name", "PetHealthDev"
             versionCode 1
             versionName "0.0.1"
         }
         uat {
             dimension "default"
-            applicationIdSuffix ".awesome.member.uat"
-            resValue "string", "app_name", "AwesomeAppUAT"
+            applicationIdSuffix ".pet.health.uat"
+            resValue "string", "app_name", "PetHealthUat"
             versionCode 1
             versionName "0.0.1"
         }
         prod {
             dimension "default"
-            applicationIdSuffix ".awesome.member"
-            resValue "string", "app_name", "AwesomeApp"
+            applicationIdSuffix ".pet.health"
+            resValue "string", "app_name", "PetHealth"
             versionCode 1
             versionName "0.0.1"
         }
