@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
-import { StatusBar, Platform, TouchableOpacity, StatusBarStyle } from 'react-native';
+import React, {useState} from 'react';
+import {
+  StatusBar,
+  Platform,
+  TouchableOpacity,
+  StatusBarStyle,
+} from 'react-native';
 import COLOR from '../../constant/color';
 import * as CONSTANT from '../../constant/index';
 import {
@@ -32,7 +37,7 @@ interface NavigationHeaderBarProps {
   onPress?: () => void;
 }
 
-export default function NavigationHeaderBar({
+const NavigationHeaderBar: React.FC<NavigationHeaderBarProps> = ({
   backgroundColor = COLOR.SAFFRON,
   title,
   navigation,
@@ -49,7 +54,7 @@ export default function NavigationHeaderBar({
   isShowleftButton = true,
   leftButtonIcon,
   onPress = () => navigation?.goBack(),
-}: NavigationHeaderBarProps): JSX.Element {
+}: NavigationHeaderBarProps) => {
   const statusBarHeight = StatusBar.currentHeight || 0;
 
   const [LeftBtnIcon] = useState<any>();
@@ -88,4 +93,6 @@ export default function NavigationHeaderBar({
       </NavBarView>
     </NavSafeAreaView>
   );
-}
+};
+
+export default NavigationHeaderBar;

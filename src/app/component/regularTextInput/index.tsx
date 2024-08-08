@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Image} from 'react-native';
+import {Image, ImageSourcePropType, KeyboardTypeOptions} from 'react-native';
 
 import COLOR from '../../constant/color';
 import {
@@ -13,7 +13,41 @@ import {
 } from './style';
 import normalize from '../../util/normalize';
 
-export default function RegularTextInput(props) {
+interface IconItem {
+  icon: ImageSourcePropType;
+  onPress?: () => void;
+}
+
+interface RegularTextInputProps {
+  placeholder?: string;
+  editable?: boolean;
+  password?: boolean;
+  secureTextEntry?: boolean;
+  defaultValue?: string;
+  maxLength?: number;
+  placeholderTextColor?: string;
+  width?: string | number;
+  height?: number;
+  marginLeft?: number;
+  backgroundColor?: string;
+  bordetRadius?: number;
+  fontSize?: number;
+  paddingLeft?: number;
+  paddingRight?: number;
+  iconArr?: IconItem[];
+  borderColor?: string;
+  isShowTypeIcon?: boolean;
+  errorTip?: string;
+  type?: 'none' | 'success' | 'error';
+  onChangeText?: (text: string) => void;
+  onEndEditing?: (e: any) => void;
+  onBlur?: (e: any) => void;
+  onFocus?: (e: any) => void;
+  keyboardType?: KeyboardTypeOptions;
+  textContentType?: any; // iOS specific, needs proper typing
+}
+
+const RegularTextInput: React.FC<RegularTextInputProps> = props => {
   const {
     placeholder, // Placeholder text
     editable = true, // Whether it's editable, false means not editable
@@ -49,8 +83,8 @@ export default function RegularTextInput(props) {
     textContentType, // Only supported in iOS
   } = props;
 
-  const [ShowTypeTip, setShowTypeTip] = useState(isShowTypeIcon);
-  const [Border, setBorder] = useState(borderColor);
+  const [ShowTypeTip, setShowTypeTip] = useState<boolean>(isShowTypeIcon);
+  const [Border, setBorder] = useState<string | undefined>(borderColor);
 
   // useEffect(() => {
   //   setShowTypeTip(()=>isShowTypeIcon);
@@ -74,21 +108,21 @@ export default function RegularTextInput(props) {
     }
   }, [borderColor, type]);
 
-  function handleFocus(e) {
+  function handleFocus(e: any) {
     if (type !== 'error') {
       setBorder(() => `1px solid ${COLOR.RED_PANTONE}`);
     }
     !!onFocus && onFocus(e);
   }
 
-  function handleBlur(e) {
+  function handleBlur(e: any) {
     if (type !== 'error') {
       setBorder(() => 'none');
     }
     !!onBlur && onBlur(e);
   }
 
-  function handleEndEditing(e) {
+  function handleEndEditing(e: any) {
     !!onEndEditing && onEndEditing(e);
   }
 
@@ -124,11 +158,11 @@ export default function RegularTextInput(props) {
           fontSize={fontSize}
           keyboardType={keyboardType}
           textContentType={textContentType}
-          onEndEditing={e => handleEndEditing(e)}
-          onChangeText={e => onChangeText(e)}
+          onEndEditing={handleEndEditing}
+          onChangeText={onChangeText}
           isShowTypeTip={!!ShowTypeTip && type === 'error'}
-          onFocus={e => handleFocus(e)}
-          onBlur={e => handleBlur(e)}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
         {type === 'success' && (
           <TouchableOpacityItem>
@@ -149,4 +183,6 @@ export default function RegularTextInput(props) {
       </NormalTextInputView>
     </>
   );
-}
+};
+
+export default RegularTextInput;

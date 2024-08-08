@@ -1,6 +1,4 @@
 import styled from 'styled-components/native';
-import { Text } from 'react-native';
-import * as CONSTANT from '../../constant/index';
 
 // const LeftButonImgExit = require('../../../assets/images/general/icon30X30Exit.png');
 // const LeftButonImgBack = require('../../../assets/images/general/icon30X30Back.png');
@@ -20,7 +18,7 @@ export const FlexView = styled.View`
   align-items: center;
 `;
 
-export const NavSafeAreaView = styled.SafeAreaView<{ backgroundColor: string }>`
+export const NavSafeAreaView = styled.SafeAreaView<{backgroundColor: string}>`
   background-color: ${props => props.backgroundColor};
 `;
 
@@ -39,7 +37,7 @@ export const TitleView = styled(FlexView)`
   height: 100%;
 `;
 
-export const TitleText = styled.Text<{ color: string }>`
+export const TitleText = styled.Text<{color: string}>`
   position: relative;
   font-size: 18;
   color: ${props => props.color};

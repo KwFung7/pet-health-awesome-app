@@ -11,7 +11,7 @@ interface HomeProps {
   navigation: NavigationProp<ParamListBase>;
 }
 
-const Home: React.FC<HomeProps> = (props: HomeProps) => {
+const Home: React.FC<HomeProps> = () => {
   const {t} = useTranslation();
   const dispatch = useDispatch();
 

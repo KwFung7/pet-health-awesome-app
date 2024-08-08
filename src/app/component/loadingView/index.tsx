@@ -10,7 +10,7 @@ interface LoadingViewProps {
   navigation: NavigationProp<ParamListBase>;
 }
 
-const LoadingView = (props: LoadingViewProps) => {
+const LoadingView: React.FC<LoadingViewProps> = () => {
   const spin = setLoadingAnimation();
 
   return (
