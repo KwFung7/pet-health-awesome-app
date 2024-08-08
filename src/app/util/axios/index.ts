@@ -21,10 +21,7 @@ service.interceptors.request.use(
     console.log('Starting Request: ', JSON.stringify(request, null, 2));
     return request;
   },
-  config => {
-    return config;
-  },
-  err => {
+  (err: any) => {
     console.log('Request interceptor: ' + err);
     return Promise.reject(err.message);
   },
