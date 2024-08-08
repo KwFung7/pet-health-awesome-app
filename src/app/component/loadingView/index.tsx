@@ -1,11 +1,16 @@
 import React from 'react';
 import {View, Animated} from 'react-native';
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {setLoadingAnimation} from '../../util/common';
 import {styles} from './style';
 import loadingIcon from '../../../assets/images/icon/iconTechnologyLoadingOverLight.png';
 import normalize from '../../util/normalize';
 
-export default function LoadingView(props) {
+interface LoadingViewProps {
+  navigation: NavigationProp<ParamListBase>;
+}
+
+const LoadingView = (props: LoadingViewProps) => {
   const spin = setLoadingAnimation();
 
   return (
@@ -20,4 +25,6 @@ export default function LoadingView(props) {
       />
     </View>
   );
-}
+};
+
+export default LoadingView;

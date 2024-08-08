@@ -2,11 +2,16 @@ import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
-import {ExampleText} from './style';
 import Config from 'react-native-config';
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
+import {ExampleText} from './style';
 import {exampleAction} from '../../actions/home';
 
-const Home = props => {
+interface HomeProps {
+  navigation: NavigationProp<ParamListBase>;
+}
+
+const Home: React.FC<HomeProps> = (props: HomeProps) => {
   const {t} = useTranslation();
   const dispatch = useDispatch();
 

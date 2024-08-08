@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import COLOR from '../../constant/color';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     backgroundColor: COLOR.WHITE,
     width: '100%',
@@ -10,5 +10,3 @@ const styles = StyleSheet.create({
     height: '80%',
   },
 });
-
-module.exports = {styles};
