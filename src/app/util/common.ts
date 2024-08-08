@@ -9,12 +9,16 @@ import {t} from 'i18next';
 const deviceWidthDp = Dimensions.get('window').width;
 const uiWidthPx = 428;
 
-export const replaceString = (string, num, symbol = '###string###') => {
+export const replaceString = (
+  string: string,
+  num: number,
+  symbol = '###string###',
+) => {
   const str = string.replace(new RegExp(symbol, 'g'), `${num}`);
   return str;
 };
 
-export const judgeLanguage = data => {
+export const judgeLanguage = (data: any) => {
   if (i18n.language === 'en') {
     return data.en;
   } else {
@@ -22,14 +26,14 @@ export const judgeLanguage = data => {
   }
 };
 
-export const calculateFormHeight = insets => {
+export const calculateFormHeight = (insets: any) => {
   const DEVICE_HEIGHT = Dimensions.get('window').height;
   const STATUSBAR_HEIGHT =
     Platform.OS === 'ios' ? insets.top : StatusBar.currentHeight;
   return DEVICE_HEIGHT - CONSTANT.NAV_BAR_HEIGHT - STATUSBAR_HEIGHT;
 };
 
-export const getDateList = month => {
+export const getDateList = (month: string) => {
   const dateList = [];
   let count = 1;
   const daysInMonth = moment(`2020-${month || '01'}`, 'YYYY-MM').daysInMonth();
@@ -43,7 +47,7 @@ export const getDateList = month => {
   return dateList;
 };
 
-export const formatDate = (date, rule) => {
+export const formatDate = (date: string, rule: string) => {
   return moment(date).format(rule);
 };
 
@@ -73,33 +77,36 @@ export const generateOtp = () => {
   return otp;
 };
 
-export const encryptedText = (message, timestamp = '') => {
+export const encryptedText = (message: string, timestamp = '') => {
   const ciphertext = CryptoJS.AES.encrypt(
     message,
-    `${CONSTANT.APP_ENCRYPTION_KEY.APP_SECRET_KEY}${timestamp}`,
+    // `${CONSTANT.APP_ENCRYPTION_KEY.APP_SECRET_KEY}${timestamp}`,
+    timestamp,
   ).toString();
   return ciphertext;
 };
 
-export const decryptedText = (message, timestamp = '') => {
+export const decryptedText = (message: string, timestamp = '') => {
   const bytes = CryptoJS.AES.decrypt(
     message,
-    `${CONSTANT.APP_ENCRYPTION_KEY.APP_SECRET_KEY}${timestamp}`,
+    // `${CONSTANT.APP_ENCRYPTION_KEY.APP_SECRET_KEY}${timestamp}`,
+    timestamp,
   );
   const originalText = bytes.toString(CryptoJS.enc.Utf8);
   return originalText;
 };
 
-export const openNativeWebView = targetUrl => {
+export const openNativeWebView = (targetUrl: string) => {
   if (Platform.OS === 'ios') {
     SafariView.isAvailable()
-      .then(
+      .then(() =>
         SafariView.show({
           url: targetUrl,
         }),
       )
       .catch(error => {
         // Fallback WebView code for iOS 8 and earlier
+        console.log(error);
       });
   } else if (Platform.OS === 'android') {
   }
@@ -116,7 +123,7 @@ export const diffDay = () => {
   return moment(endTime).diff(moment(curTime), 'days') + 1;
 };
 
-export const isWithinPeriod = (start, end) => {
+export const isWithinPeriod = (start: string, end: string) => {
   const startTime = moment(start).format('YYYY-MM-DD HH:mm:ss');
   const endTime = moment(end).format('YYYY-MM-DD HH:mm:ss');
   const curTime = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -130,7 +137,7 @@ export const isWithinPeriod = (start, end) => {
   return false;
 };
 
-export const isWithinPeriodUsedDay = (start, end) => {
+export const isWithinPeriodUsedDay = (start: string, end: string) => {
   const startTime = moment(start).format('YYYY-MM-DD');
   const endTime = moment(end).format('YYYY-MM-DD');
   const curTime = moment().format('YYYY-MM-DD');
@@ -144,7 +151,7 @@ export const isWithinPeriodUsedDay = (start, end) => {
   return false;
 };
 
-export const isInMonth = dataDate => {
+export const isInMonth = (dataDate: string) => {
   const endTime = moment().subtract(1, 'months').format('YYYY-MM-DD HH:mm:ss');
   const curTime = moment(dataDate).format('YYYY-MM-DD HH:mm:ss');
   if (moment(curTime).diff(moment(endTime)) > 0) {
@@ -153,7 +160,7 @@ export const isInMonth = dataDate => {
   return false;
 };
 
-export const isInWeek = day => {
+export const isInWeek = (day: string) => {
   const curDay = moment().format('dddd').toLowerCase().slice(0, 3);
   if (day.indexOf(curDay) !== -1) {
     return true;
@@ -161,12 +168,12 @@ export const isInWeek = day => {
   return false;
 };
 
-export const isInHours = hours => {
+export const isInHours = (hours: string) => {
   const hoursList = hours.split(';');
   const curDay = moment().format('YYYY-MM-DD');
   const curTime = moment().format('YYYY-MM-DD HH:mm');
   let isInHour = false;
-  hoursList.map(item => {
+  hoursList.map((item: string) => {
     const date = curDay + ' ' + item;
     const diff = moment(curTime).diff(moment(date));
     if (diff > 0 && diff < 3600000) {
@@ -179,20 +186,21 @@ export const isInHours = hours => {
 export const closeNativeWebView = () => {
   if (Platform.OS === 'ios') {
     SafariView.isAvailable()
-      .then(SafariView.dismiss())
+      .then(() => SafariView.dismiss())
       .catch(error => {
         // Fallback WebView code for iOS 8 and earlier
+        console.log(error);
       });
   } else if (Platform.OS === 'android') {
   }
 };
 
-export const pxTodp = uiElePx => {
+export const pxTodp = (uiElePx: number) => {
   return (uiElePx * deviceWidthDp) / uiWidthPx;
 };
 
-export const thousandFormatter = inputValue => {
-  const resultList = {
+export const thousandFormatter = (inputValue: number) => {
+  const resultList: {value: number; unit: string} = {
     value: inputValue,
     unit: '',
   };
@@ -234,7 +242,7 @@ export const thousandFormatter = inputValue => {
   return resultList;
 };
 
-export const floorToOneDp = input => {
-  const result = input.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0];
-  return result.replace('.0', '');
+export const floorToOneDp = (input: number) => {
+  const result = input.toString().match(/^-?\d+(?:\.\d{0,1})?/)?.[0];
+  return parseInt(result?.replace('.0', '') || '0', 10);
 };

@@ -1,25 +1,28 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {Provider} from 'react-redux';
 import store from './src/app/store/index';
 import {NavigationContainer} from '@react-navigation/native';
-import RootNavigator from './src/app/navigator/index.jsx';
+import RootNavigator from './src/app/navigator/index';
 import {Host} from 'react-native-portalize';
 import './src/app/util/i18n/index';
 
-const App = props => {
-  const routeNameRef = React.useRef();
-  const navigationRef = React.useRef();
+interface AppProps {}
+
+const App: React.FC<AppProps> = () => {
+  const routeNameRef = useRef<string | undefined>();
+  const navigationRef = useRef<any>(null);
 
   return (
     <Provider store={store}>
       <NavigationContainer
         ref={navigationRef}
         onReady={() => {
-          routeNameRef.current = navigationRef.current.getCurrentRoute().name;
+          routeNameRef.current = navigationRef.current?.getCurrentRoute()?.name;
         }}
         onStateChange={async () => {
           const previousRouteName = routeNameRef.current;
-          const currentRouteName = navigationRef.current.getCurrentRoute().name;
+          const currentRouteName =
+            navigationRef.current?.getCurrentRoute()?.name;
 
           console.log('Navigation Change:');
           console.log(`Previous Route: ${previousRouteName}`);
