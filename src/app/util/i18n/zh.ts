@@ -1,4 +1,4 @@
 export default {
   // App name
-  "app_name": `Awesome App EN`,
+  app_name: 'Awesome App TC',
 };

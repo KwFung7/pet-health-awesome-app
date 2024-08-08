@@ -22,7 +22,7 @@ DerivedData
 *.xcuserstate
 **/.xcode.env.local
 
-# Android/IntelliJ
+# Android/IntelliJ/VSCode
 #
 build/
 .idea
@@ -37,6 +37,7 @@ local.properties
 *.apk
 output-metadata.json
 jks/
+.vscode
 
 # node.js
 #

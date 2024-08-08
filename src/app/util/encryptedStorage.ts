@@ -4,7 +4,9 @@ const encryptedStorage = {
   set: async function (key, data) {
     try {
       await EncryptedStorage.setItem(key, JSON.stringify(data));
-      console.log(`------Congrats! You've just stored your value to key ${key}!`);
+      console.log(
+        `------Congrats! You've just stored your value to key ${key}!`,
+      );
       console.log(JSON.stringify(data, null, 2));
     } catch (error) {
       console.log('--------There was an error on the native side', error);
@@ -16,7 +18,9 @@ const encryptedStorage = {
       const session = await EncryptedStorage.getItem(key);
       if (session !== undefined && session !== null) {
         const obj = JSON.parse(session);
-        console.log(`------Congrats! You've just get your value from key ${key}!`);
+        console.log(
+          `------Congrats! You've just get your value from key ${key}!`,
+        );
         return obj[name] !== undefined ? obj[name] : obj;
       }
       return false;
@@ -28,7 +32,9 @@ const encryptedStorage = {
   remove: async function (key) {
     try {
       await EncryptedStorage.removeItem(key);
-      console.log(`------Congrats! You've just removed your value in key ${key}!`);
+      console.log(
+        `------Congrats! You've just removed your value in key ${key}!`,
+      );
       return true;
     } catch (error) {
       console.log('--------There was an error on the native side', error);

@@ -5,10 +5,14 @@ import RootReducer from '../reducers/index';
 const middlewares = [thunk];
 
 if (__DEV__) {
-    const { logger } = require(`redux-logger`);
+  const {logger} = require('redux-logger');
 
-    middlewares.push(logger);
+  middlewares.push(logger);
 }
 
-const store = createStore(RootReducer, applyMiddleware(...middlewares));
+const store = createStore(
+  RootReducer,
+  undefined,
+  applyMiddleware(...middlewares),
+);
 export default store;
