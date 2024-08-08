@@ -2,7 +2,8 @@ import axios from '../util/axios';
 
 const _post = (endpoint, requestData) => {
   return new Promise((resolve, reject) => {
-    axios.post(endpoint, requestData)
+    axios
+      .post(endpoint, requestData)
       .then(res => {
         resolve(res);
       })

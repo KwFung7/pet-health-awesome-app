@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Image } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Image} from 'react-native';
 
 import COLOR from '../../constant/color';
 import {
@@ -46,7 +46,7 @@ export default function RegularTextInput(props) {
     // onContentSizeChange, // Triggered when the number of character lines in the TextInput component changes. Thus, this callback is only valid for multiline TextInput components. Its parameter is an object from which we can get the new width and height of the current TextInput component. nativeEvent: {contentSize: {width: number, height: number}}
     // onScroll, // Called when the TextInput component scrolls. Its parameter is an object from which we can get the current scroll position of the component. nativeEvent: {contentOffset: {x: number, y: number}}
     keyboardType, // default / number-pad / decimal-pad / numeric / email-address / phone-pad
-    textContentType // Only supported in iOS
+    textContentType, // Only supported in iOS
   } = props;
 
   const [ShowTypeTip, setShowTypeTip] = useState(isShowTypeIcon);
@@ -96,7 +96,10 @@ export default function RegularTextInput(props) {
     <>
       {type === 'error' && !!errorTip && (
         <BottomTip>
-          <Image style={{ height: normalize(16), width: normalize(16) }} source={ErrorAlertIcon} />
+          <Image
+            style={{height: normalize(16), width: normalize(16)}}
+            source={ErrorAlertIcon}
+          />
           <BottomTipText>{errorTip}</BottomTipText>
         </BottomTip>
       )}
@@ -129,7 +132,10 @@ export default function RegularTextInput(props) {
         />
         {type === 'success' && (
           <TouchableOpacityItem>
-            <Image source={SuccessStrokeIcon} style={{ width: normalize(32), height: normalize(32) }} />
+            <Image
+              source={SuccessStrokeIcon}
+              style={{width: normalize(32), height: normalize(32)}}
+            />
           </TouchableOpacityItem>
         )}
         {!!iconArr.length &&

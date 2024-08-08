@@ -34,14 +34,14 @@ module.exports = {
     'no-raw-text': 0,
     'no-var': 1,
     'no-unused-vars': 1,
-    'prettier/prettier': 0,
+    'prettier/prettier': 1,
     'quote-props': 0,
-    'quotes': 1,
+    quotes: 1,
     'sort-styles': 0,
     'react-native/no-unused-styles': 2,
     'react-native/split-platform-components': 2,
     'react-native/no-inline-styles': 2,
     'react-native/no-color-literals': 2,
     'react-native/no-single-element-style-arrays': 2,
-  }
+  },
 };

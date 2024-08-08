@@ -1,4 +1,4 @@
-import { EXAMPLE_ACTION_TYPE } from '../actions/type';
+import {EXAMPLE_ACTION_TYPE} from '../actions/type';
 
 const initialState = {
   example: 'default',

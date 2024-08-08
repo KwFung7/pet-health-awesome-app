@@ -29,8 +29,7 @@ const NormalTextInput = styled.TextInput`
   opacity: ${(props => props.editable) ? 1 : 0.3};
 `;
 
-const TouchableOpacityItem = styled.Pressable`
-`;
+const TouchableOpacityItem = styled.Pressable``;
 
 const BottomTip = styled.View`
   position: absolute;

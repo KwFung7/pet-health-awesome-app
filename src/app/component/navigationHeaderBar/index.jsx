@@ -1,14 +1,20 @@
 import React, {useState} from 'react';
-import { StatusBar, Platform, TouchableOpacity } from 'react-native';
+import {StatusBar, Platform, TouchableOpacity} from 'react-native';
 import COLOR from '../../constant/color';
 import CONSTANT from '../../constant/index';
-import { LeftBtnImage, NavSafeAreaView, NavBarView, TitleView, TitleText, HandleView } from './style';
+import {
+  LeftBtnImage,
+  NavSafeAreaView,
+  NavBarView,
+  TitleView,
+  TitleText,
+  HandleView,
+} from './style';
 
 export default function NavigationHeaderBar(props) {
-
   const statusBarHeight = StatusBar.currentHeight;
 
-  const { backgroundColor = COLOR.SAFFRON } = props;
+  const {backgroundColor = COLOR.SAFFRON} = props;
 
   const StatusBarShape = {
     // Set status bar
@@ -47,14 +53,23 @@ export default function NavigationHeaderBar(props) {
             : CONSTANT.NAV_BAR_HEIGHT_ANDROID
         }>
         <TitleView>
-          {!!MainNavigation ? MainNavigation : <TitleText color={color}>{title}</TitleText>}
+          {!!MainNavigation ? (
+            MainNavigation
+          ) : (
+            <TitleText color={color}>{title}</TitleText>
+          )}
         </TitleView>
         <HandleView>
-          {!!isShowleftButton && (LeftButton ? LeftButton : (
-            <TouchableOpacity onPress={() => onPress()}>
-              <LeftBtnImage source={!!leftButtonIcon ? leftButtonIcon : LeftBtnIcon} />
-            </TouchableOpacity>
-          ))}
+          {!!isShowleftButton &&
+            (LeftButton ? (
+              LeftButton
+            ) : (
+              <TouchableOpacity onPress={() => onPress()}>
+                <LeftBtnImage
+                  source={!!leftButtonIcon ? leftButtonIcon : LeftBtnIcon}
+                />
+              </TouchableOpacity>
+            ))}
           {!!RightButton && RightButton}
         </HandleView>
       </NavBarView>
