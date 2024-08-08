@@ -11,11 +11,11 @@ export default function NavigationHeaderBar(props) {
   const { backgroundColor = CONSTANT.COLORS.GENKI_YELLOW } = props;
 
   const StatusBarShape = {
-    // 设置状态栏
-    backgroundColor: backgroundColor, //string 设置状态栏的颜色
-    barStyle: 'dark-content', //'default', 'light-content', 'dark-content' 状态栏样式，IOS默认为白底黑字，ANDROID默认黑底白字；
-    hidden: false, //bool 状态栏是否隐藏；
-    translucent: false, //bool 指定状态栏是否透明。true：应用会在状态栏之下绘制（沉浸式，被状态栏遮挡一部分）。常和带有半透明背景色的状态栏搭配使用。
+    // Set status bar
+    backgroundColor: backgroundColor, // string: Set the color of the status bar
+    barStyle: 'dark-content', // 'default', 'light-content', 'dark-content' Status bar style, iOS default is white background with black text, Android default is black background with white text
+    hidden: false, // bool: Whether the status bar is hidden
+    translucent: false, // bool: Specify whether the status bar is transparent. true: The app will render under the status bar (immersive, partially covered by the status bar). Often used with a semi-transparent background color for the status bar.
   };
 
   const {

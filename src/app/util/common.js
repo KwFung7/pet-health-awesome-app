@@ -6,9 +6,7 @@ import CryptoJS from 'react-native-crypto-js';
 import SafariView from 'react-native-safari-view';
 import { t } from 'i18next';
 
-// 设备宽度，单位 dp
 const deviceWidthDp = Dimensions.get('window').width;
-// 设计稿宽度（这里为428px），单位 px
 const uiWidthPx = 428;
 
 export const replaceString = (string, num, symbol = '###string###') => {

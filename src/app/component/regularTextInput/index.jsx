@@ -15,13 +15,13 @@ import normalize from '../../util/normalize';
 
 export default function RegularTextInput(props) {
   const {
-    placeholder, //占位符文本;
-    editable = true, //是否可编辑, 为 false 表示不可编辑;
-    password, //为 true，表示密码输入框。文本可见;
-    secureTextEntry = false, //true: 像密码框一样隐藏输入内容;
-    defaultValue, //定义 TextInput 组件中的字符串默认值;
-    maxLength, //能够输入的最长字符数
-    placeholderTextColor = CONSTANT.COLORS.SYSTEM_GRAY, //占位符文本的颜色;
+    placeholder, // Placeholder text
+    editable = true, // Whether it's editable, false means not editable
+    password, // If true, indicates a password input field. Text is visible
+    secureTextEntry = false, // true: Hide input content like a password field
+    defaultValue, // Default string value for the TextInput component
+    maxLength, // Maximum number of characters that can be entered
+    placeholderTextColor = CONSTANT.COLORS.SYSTEM_GRAY, // Color of the placeholder text
     width = '100%',
     height = normalize(48),
     marginLeft = 0,
@@ -34,19 +34,19 @@ export default function RegularTextInput(props) {
     borderColor,
     isShowTypeIcon = false,
     errorTip,
-    type = 'none', // none / success / error;
-    // onChange, //当文本发生变化时，调用该函数。接收一个 event 参数，通过 event.nativeEvent.text 可以获取用户输入的字符串。event=>console.log(event.nativeEvent.text);
-    onChangeText, //当文本发生变化时，调用该函数。直接可以接收用户输入的字符串。text=>console.log(text);
-    onEndEditing, //当结束编辑时，调用该函数。接收一个 event 参数。
-    onBlur, //失去焦点时触发（在 onEndEditing 之后）。接收一个 event 参数。
-    onFocus, //获得焦点时触发。接收一个 event 参数。
-    // onSubmitEditing, //当结束编辑后，点击键盘的提交按钮触发该事件。接收一个 event 参数。
-    // onSelectionChange, //当用户在文本输入框中选择的字符串发生改变时触发。接收一个 event 参数。event.nativeEvent.selection.start 和 event.nativeEvent.selection.end；
-    // onKeyPress, //（iOS 专有）；当 TextInput 组件获得焦点后，一个按键被按下时，这个回调函数将被调用并被传入按下键的键值。这个函数会在 onChange 回调函数之前被调用。
-    // onContentSizeChange, //当 TextInput 组件的字符行数变化时触发该事件。因此这个回调函数只对多行 TextInput 组件有效，它的参数是一个对象，我们可以从中得到当前 TextInput 组件的新的宽与高。nativeEvent: {contentSize: {width: number, height: number}};
-    // onScroll, //在 TextInput 组件滚动时会被调用。它的参数是一个对象，我们可以从中得到组件当前滚动的位置。nativeEvent: {contentOffset: {x: number, y: number}};
+    type = 'none', // none / success / error
+    // onChange, // Called when text changes. Receives an event parameter, can get user input string via event.nativeEvent.text. event=>console.log(event.nativeEvent.text)
+    onChangeText, // Called when text changes. Directly receives the user input string. text=>console.log(text)
+    onEndEditing, // Called when editing ends. Receives an event parameter.
+    onBlur, // Triggered when focus is lost (after onEndEditing). Receives an event parameter.
+    onFocus, // Triggered when focus is gained. Receives an event parameter.
+    // onSubmitEditing, // Triggered when the submit button on the keyboard is pressed after editing ends. Receives an event parameter.
+    // onSelectionChange, // Triggered when the user's selection in the text input changes. Receives an event parameter. event.nativeEvent.selection.start and event.nativeEvent.selection.end
+    // onKeyPress, // (iOS only) Called when a key is pressed while the TextInput is focused. This callback is called before the onChange callback.
+    // onContentSizeChange, // Triggered when the number of character lines in the TextInput component changes. Thus, this callback is only valid for multiline TextInput components. Its parameter is an object from which we can get the new width and height of the current TextInput component. nativeEvent: {contentSize: {width: number, height: number}}
+    // onScroll, // Called when the TextInput component scrolls. Its parameter is an object from which we can get the current scroll position of the component. nativeEvent: {contentOffset: {x: number, y: number}}
     keyboardType, // default / number-pad / decimal-pad / numeric / email-address / phone-pad
-    textContentType // Only supported in IOS
+    textContentType // Only supported in iOS
   } = props;
 
   const [ShowTypeTip, setShowTypeTip] = useState(isShowTypeIcon);

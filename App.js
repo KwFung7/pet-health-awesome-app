@@ -21,14 +21,22 @@ const App = props => {
         const previousRouteName = routeNameRef.current;
         const currentRouteName = navigationRef.current.getCurrentRoute().name;
 
-        console.log('Previous Route Name: ' + previousRouteName);
-        console.log('Current Route Name: ' + currentRouteName);
-        // if (previousRouteName !== currentRouteName) {
-        //   await analytics().logScreenView({
-        //     screen_name: currentRouteName,
-        //     screen_class: currentRouteName,
-        //   });
-        // }
+        console.log('Navigation Change:');
+        console.log(`Previous Route: ${previousRouteName}`);
+        console.log(`Current Route: ${currentRouteName}`);
+        console.log(`Timestamp: ${new Date().toISOString()}`);
+
+        if (previousRouteName !== currentRouteName) {
+          console.log('Route changed. Logging screen view...');
+          // Uncomment the following block when analytics is set up
+          // await analytics().logScreenView({
+          //   screen_name: currentRouteName,
+          //   screen_class: currentRouteName,
+          // });
+        } else {
+          console.log('Route remained the same. No screen view logged.');
+        }
+
         routeNameRef.current = currentRouteName;
       }}>
       <Host>
