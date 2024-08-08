@@ -6,14 +6,13 @@ import Home from '../container/home';
 
 const Stack = createStackNavigator();
 
-const Router = props => {
+const Router: React.FC<any> = () => {
   // console.log(NAVIGATION);
 
   return (
     <Stack.Navigator
       initialRouteName={NAVIGATION.SCREENS.HOME}
-      presentation="card"
-      screenOptions={({route, navigation}) => ({
+      screenOptions={() => ({
         headerShown: false,
         gestureDirection: 'horizontal',
       })}>

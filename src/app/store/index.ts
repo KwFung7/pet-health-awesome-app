@@ -10,5 +10,9 @@ if (__DEV__) {
   middlewares.push(logger);
 }
 
-const store = createStore(RootReducer, applyMiddleware(...middlewares));
+const store = createStore(
+  RootReducer,
+  undefined,
+  applyMiddleware(...middlewares),
+);
 export default store;

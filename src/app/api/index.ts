@@ -1,6 +1,6 @@
 import axios from '../util/axios';
 
-const _post = (endpoint, requestData) => {
+const _post = (endpoint: string, requestData: any) => {
   return new Promise((resolve, reject) => {
     axios
       .post(endpoint, requestData)
@@ -13,7 +13,7 @@ const _post = (endpoint, requestData) => {
   });
 };
 
-// const _get = endpoint => {
+// const _get = (endpoint: string) => {
 //   return new Promise((resolve, reject) => {
 //     axios.get(endpoint)
 //       .then(res => {
@@ -25,7 +25,7 @@ const _post = (endpoint, requestData) => {
 //   });
 // };
 
-// const _del = endpoint => {
+// const _del = (endpoint: string) => {
 //   return new Promise((resolve, reject) => {
 //     axios.delete(endpoint)
 //       .then(res => {
@@ -37,4 +37,4 @@ const _post = (endpoint, requestData) => {
 //   });
 // };
 
-export const example = payload => _post('example/endpoint', payload);
+export const example = (payload: any) => _post('example/endpoint', payload);
