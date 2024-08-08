@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import * as CONSTANT from '../../constant/index';
+import COLOR from '../../constant/color';
 
 const ExampleText = styled.Text`
-  color: ${CONSTANT.COLORS.DARK_ORANGE}
+  color: ${COLOR.SANDY_BROWN}
 `;
 
 export {

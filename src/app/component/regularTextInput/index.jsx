@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Image } from 'react-native';
 
-import * as CONSTANT from '../../constant/index';
+import COLOR from '../../constant/color';
 import {
   SuccessStrokeIcon,
   NormalTextInputView,
@@ -21,11 +21,11 @@ export default function RegularTextInput(props) {
     secureTextEntry = false, // true: Hide input content like a password field
     defaultValue, // Default string value for the TextInput component
     maxLength, // Maximum number of characters that can be entered
-    placeholderTextColor = CONSTANT.COLORS.SYSTEM_GRAY, // Color of the placeholder text
+    placeholderTextColor = COLOR.SLATE_GRAY, // Color of the placeholder text
     width = '100%',
     height = normalize(48),
     marginLeft = 0,
-    backgroundColor = CONSTANT.COLORS.WHITE,
+    backgroundColor = COLOR.WHITE,
     bordetRadius = 28,
     fontSize = normalize(19),
     paddingLeft = normalize(16),
@@ -66,7 +66,7 @@ export default function RegularTextInput(props) {
 
   useEffect(() => {
     if (type === 'error') {
-      setBorder(() => `1px solid ${CONSTANT.COLORS.PEACHY_PINK}`);
+      setBorder(() => `1px solid ${COLOR.CARNATION_PINK}`);
     } else if (!!borderColor) {
       setBorder(() => `1px solid ${borderColor}`);
     } else {
@@ -76,7 +76,7 @@ export default function RegularTextInput(props) {
 
   function handleFocus(e) {
     if (type !== 'error') {
-      setBorder(() => `1px solid ${CONSTANT.COLORS.AMBER}`);
+      setBorder(() => `1px solid ${COLOR.RED_PANTONE}`);
     }
     !!onFocus && onFocus(e);
   }

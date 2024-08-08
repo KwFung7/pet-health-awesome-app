@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { StatusBar, Platform, TouchableOpacity } from 'react-native';
-import * as CONSTANT from '../../constant/index';
+import COLOR from '../../constant/color';
 
 import { LeftBtnImage, NavSafeAreaView, NavBarView, TitleView, TitleText, HandleView } from './style';
 
@@ -8,7 +8,7 @@ export default function NavigationHeaderBar(props) {
 
   const statusBarHeight = StatusBar.currentHeight;
 
-  const { backgroundColor = CONSTANT.COLORS.GENKI_YELLOW } = props;
+  const { backgroundColor = COLOR.SAFFRON } = props;
 
   const StatusBarShape = {
     // Set status bar
@@ -24,7 +24,7 @@ export default function NavigationHeaderBar(props) {
     MainNavigation,
     LeftButton, //element;
     RightButton, //element;
-    color = CONSTANT.COLORS.BLACK,
+    color = COLOR.EERIE_BLACK,
     TopStatusBar = StatusBarShape,
     isShowleftButton = true,
     // isShowRightButton = false,

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import * as CONSTANT from '../../constant/index';
+import COLOR from '../../constant/color';
 import normalize from '../../util/normalize';
 
 const ErrorAlertIcon = require('../../../assets/images/icon/iconMessageError.png');
@@ -47,7 +47,7 @@ const BottomTip = styled.View`
 const BottomTipText = styled.Text`
   // font-family: ${CONSTANT.FONT_FAMILY.REGULAR};
   font-size: ${normalize(17)}px;
-  color: ${CONSTANT.COLORS.PEACHY_PINK};
+  color: ${COLOR.CARNATION_PINK};
   text-align: right;
   margin-left: 4px;
 `;
