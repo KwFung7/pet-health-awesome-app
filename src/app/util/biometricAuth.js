@@ -5,7 +5,7 @@ import { BIOMETRIC_AUTH_STATUS } from '../constant';
 export default class BiometricAuthUtil {
   supportMode = async () => {
     try {
-      let { available, biometryType } = await ReactNativeBiometrics.isSensorAvailable();
+      const { available, biometryType } = await ReactNativeBiometrics.isSensorAvailable();
       if (available && biometryType === ReactNativeBiometrics.TouchID) {
         return BIOMETRIC_AUTH_STATUS.TOUCH_ID;
       } else if (available && biometryType === ReactNativeBiometrics.FaceID) {
@@ -22,11 +22,13 @@ export default class BiometricAuthUtil {
 
   authenicate = async (message) => {
 
-    let { success, error } = await ReactNativeBiometrics.simplePrompt({
+    const { success } = await ReactNativeBiometrics.simplePrompt({
       promptMessage: message,
       cancelButtonText: i18n.t('action_cancel'), // Android only
     });
-    if (success) return true;
+    if (success) {
+      return true;
+    }
     return false;
   };
 }

@@ -24,11 +24,9 @@ const NormalTextInputView = styled.View`
 `;
 
 const NormalTextInput = styled.TextInput`
-  //font-family: ${CONSTANT.FONT_FAMILY.REGULAR};
   font-size: ${props => props.fontSize}px;
   flex: 1;
-  // font-family: ${CONSTANT.FONT_FAMILY.REGULAR};
-  opacity: ${props => props.editable ? 1 : 0.3};
+  opacity: ${(props => props.editable) ? 1 : 0.3};
 `;
 
 const TouchableOpacityItem = styled.Pressable`
@@ -45,7 +43,6 @@ const BottomTip = styled.View`
 `;
 
 const BottomTipText = styled.Text`
-  // font-family: ${CONSTANT.FONT_FAMILY.REGULAR};
   font-size: ${normalize(17)}px;
   color: ${COLOR.CARNATION_PINK};
   text-align: right;

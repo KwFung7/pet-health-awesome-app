@@ -19,7 +19,7 @@
     "android:build:uat": "cd android && ./gradlew clean bundleUatRelease && cd ..",
     "android:build": "cd android && ./gradlew clean bundleProdRelease && cd ..",
     "test": "jest",
-    "lint": "eslint . --ext .jsx"
+    "lint": "eslint . --ext .jsx --ext .js"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",

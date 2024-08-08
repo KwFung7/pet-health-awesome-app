@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { StatusBar, Platform, TouchableOpacity } from 'react-native';
 import COLOR from '../../constant/color';
-
+import CONSTANT from '../../constant/index';
 import { LeftBtnImage, NavSafeAreaView, NavBarView, TitleView, TitleText, HandleView } from './style';
 
 export default function NavigationHeaderBar(props) {
@@ -29,28 +29,11 @@ export default function NavigationHeaderBar(props) {
     isShowleftButton = true,
     // isShowRightButton = false,
     leftButtonIcon,
-    leftButtonIconType = 'Exit',
+    // leftButtonIconType = 'Exit',
     onPress = () => navigation.goBack(),
   } = props;
 
   const [LeftBtnIcon] = useState();
-
-  useEffect(() => {
-    // if (leftButtonIconType === 'Exit') {
-    //   setLeftBtnIcon(()=>LeftButonImgExit);
-    // }
-    // if (leftButtonIconType === 'Back') {
-    //   setLeftBtnIcon(()=>LeftButonImgBack);
-    // }
-  }, [leftButtonIconType]);
-
-  const LeftBtnView = () => {
-    return (
-      <TouchableOpacity onPress={() => onPress()}>
-        <LeftBtnImage source={!!leftButtonIcon ? leftButtonIcon : LeftBtnIcon} />
-      </TouchableOpacity>
-    );
-  };
 
   return (
     <NavSafeAreaView backgroundColor={backgroundColor}>
@@ -67,7 +50,11 @@ export default function NavigationHeaderBar(props) {
           {!!MainNavigation ? MainNavigation : <TitleText color={color}>{title}</TitleText>}
         </TitleView>
         <HandleView>
-          {!!isShowleftButton && (LeftButton ? LeftButton : <LeftBtnView />)}
+          {!!isShowleftButton && (LeftButton ? LeftButton : (
+            <TouchableOpacity onPress={() => onPress()}>
+              <LeftBtnImage source={!!leftButtonIcon ? leftButtonIcon : LeftBtnIcon} />
+            </TouchableOpacity>
+          ))}
           {!!RightButton && RightButton}
         </HandleView>
       </NavBarView>

@@ -70,17 +70,9 @@ export const setLoadingAnimation = (duration = 1000) => {
   return spin;
 };
 
-export const getQueryParams = (url) => {
-  var regexp = /[?&]([^=#]+)=([^&#]*)/g, params = {}, check;
-  while (check = regexp.exec(url)) {
-    params[check[1]] = check[2];
-  }
-
-  return params;
-};
-
 export const generateOtp = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  return otp;
 };
 
 export const encryptedText = (message, timestamp = '') => {
@@ -192,10 +184,10 @@ export const pxTodp = (uiElePx) => {
 };
 
 export const thousandFormatter = (inputValue) => {
-  let resultList = {
+  const resultList = {
     value: inputValue,
     unit: ''
-  }
+  };
 
   if (inputValue % 1000 === 0 && inputValue > 0 && inputValue < 10000) {
     resultList.value = (inputValue / 1000);
@@ -229,6 +221,6 @@ export const thousandFormatter = (inputValue) => {
 };
 
 export const floorToOneDp = (input) => {
-  let result = input.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0];
+  const result = input.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0];
   return result.replace('.0', '');
 };
